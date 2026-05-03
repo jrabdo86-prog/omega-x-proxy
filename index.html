@@ -1,2 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Omega Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Tajawal:wght@300;400;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #07090d;
+  --surf:    #0d1117;
+  --panel:   #111820;
+  --card:    #0f1923;
+  --border:  #1a2535;
+  --border2: #121c28;
+  --accent:  #00d9ff;
+  --purple:  #7c3aed;
+  --green:   #00ff9d;
+  --red:     #ff4060;
+  --gold:    #f59e0b;
+  --text:    #cdd9e5;
+  --dim:     #3d5470;
+  --dim2:    #56708a;
+  --mono:    'JetBrains Mono', monospace;
+  --ui:      'Tajawal', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--ui);display:flex;flex-direction:column}
 
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Omega-X</title><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet"><style>:root{--bg:#04060d;--surface:#080c18;--panel:#0c1120;--border:#151f38;--border-hi:#1e2f55;--green:#00ff88;--blue:#00b8ff;--gold:#ffc94d;--red:#ff4466;--text:#cdd8f5;--muted:#3a4a6a;--mono:'IBM Plex Mono',monospace;--sans:'Tajawal',sans-serif}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}.bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,184,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,184,255,.035) 1px,transparent 1px);background-size:44px 44px}.app{position:relative;z-index:1;display:grid;grid-template-rows:auto 1fr;min-height:100vh}header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.6rem;border-bottom:1px solid var(--border);background:rgba(4,6,13,.85);backdrop-filter:blur(12px);gap:1rem;flex-wrap:wrap}.logo{display:flex;align-items:center;gap:.75rem}.logo-icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#001830,#003060);border:1px solid var(--blue);display:grid;place-items:center;font-family:var(--mono);font-size:1.6rem;color:var(--blue);box-shadow:0 0 22px rgba(0,184,255,.45);animation:glow-pulse 2.5s ease-in-out infinite alternate}@keyframes glow-pulse{to{box-shadow:0 0 35px rgba(0,184,255,.75)}}.logo-text h1{font-family:var(--mono);font-size:1.1rem;color:#fff;letter-spacing:.18em;line-height:1}.logo-text span{font-size:.65rem;color:var(--green);font-family:var(--mono);letter-spacing:.22em}.hdr-badges{display:flex;gap:.6rem;flex-wrap:wrap}.badge{display:flex;align-items:center;gap:.35rem;padding:.3rem .7rem;border-radius:99px;border:1px solid var(--border-hi);font-family:var(--mono);font-size:.64rem;color:var(--muted);background:var(--surface)}.badge .dot{width:6px;height:6px;border-radius:50%;animation:blink 1.5s step-end infinite}.badge .dot.g{background:var(--green);box-shadow:0 0 6px var(--green)}.badge .dot.b{background:var(--blue);box-shadow:0 0 6px var(--blue)}.badge .dot.y{background:var(--gold);box-shadow:0 0 6px var(--gold)}@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}.workspace{display:grid;grid-template-columns:1fr 1fr;height:calc(100vh - 64px);overflow:hidden}@media(max-width:860px){.workspace{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}.chat-pane{display:flex;flex-direction:column;border-left:1px solid var(--border);overflow:hidden}.pane-header{padding:.65rem 1.2rem;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.7rem;color:var(--muted);display:flex;align-items:center;gap:.5rem;background:rgba(8,12,24,.6);flex-shrink:0}.pane-dot{width:8px;height:8px;border-radius:50%}.pane-dot.r{background:#ff5f57}.pane-dot.y{background:#febc2e}.pane-dot.g{background:#28c840}.messages{flex:1;overflow-y:auto;padding:1.2rem 1rem;display:flex;flex-direction:column;gap:1rem}.msg{display:flex;gap:.75rem;animation:pop-in .3s ease}.msg.user{flex-direction:row-reverse}@keyframes pop-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.avatar{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;flex-shrink:0;font-size:.95rem}.msg.user .avatar{background:#0d1e3a;border:1px solid var(--blue)}.msg.bot .avatar{background:#0a1e12;border:1px solid var(--green)}.bubble{max-width:80%;padding:.75rem 1rem;border-radius:10px;font-size:.88rem;line-height:1.7}.msg.user .bubble{background:#0d1e3a;border:1px solid #182e55;color:var(--text)}.msg.bot .bubble{background:#091a10;border:1px solid #0d2e18;color:#9effc8;font-size:.85rem}.typing{display:flex;align-items:center;gap:5px;padding:.4rem 0}.tdot{width:7px;height:7px;border-radius:50%;background:var(--green);opacity:.4;animation:tdot 1s ease-in-out infinite}.tdot:nth-child(2){animation-delay:.2s}.tdot:nth-child(3){animation-delay:.4s}@keyframes tdot{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-5px);opacity:1}}.input-row{display:flex;gap:.6rem;padding:.9rem;border-top:1px solid var(--border);background:rgba(8,12,24,.7);flex-shrink:0}.input-box{flex:1;background:var(--panel);border:1px solid var(--border-hi);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:var(--sans);font-size:.9rem;resize:none;outline:none;line-height:1.5;min-height:46px;max-height:140px;transition:border-color .2s,box-shadow .2s}.input-box::placeholder{color:var(--muted)}.input-box:focus{border-color:var(--blue);box-shadow:0 0 14px rgba(0,184,255,.18)}.send-btn{width:46px;height:46px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,#002a50,#004a90);border:1px solid var(--blue);color:var(--blue);cursor:pointer;display:grid;place-items:center;transition:all .2s}.send-btn:disabled{opacity:.4;cursor:not-allowed}.code-pane{display:flex;flex-direction:column;border-right:1px solid var(--border);background:var(--surface);overflow:hidden}.code-toolbar{padding:.65rem 1.2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:rgba(8,12,24,.7);flex-shrink:0;gap:.5rem}.code-toolbar-left{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--muted)}.lang-badge{padding:.2rem .6rem;border-radius:6px;background:#0a1820;border:1px solid #1a3040;color:var(--blue);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em}.copy-btn{display:none;align-items:center;gap:.45rem;padding:.38rem .9rem;border-radius:8px;background:linear-gradient(135deg,#002210,#003820);border:1px solid var(--green);color:var(--green);font-family:var(--mono);font-size:.72rem;cursor:pointer;transition:all .2s;letter-spacing:.08em}.copy-btn.show{display:flex}.code-scroll{flex:1;overflow:auto;position:relative}.code-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--muted);font-family:var(--mono);font-size:.8rem;text-align:center;padding:2rem}.code-placeholder p{opacity:.5;line-height:1.7}pre#codeBlock{margin:0;padding:1.2rem 1.4rem;font-family:var(--mono);font-size:.8rem;line-height:1.75;color:#c8e0ff;min-height:100%;white-space:pre-wrap;word-break:break-word;display:none;direction:ltr!important;text-align:left!important}.build-overlay{display:none;position:absolute;inset:0;background:rgba(4,6,13,.93);backdrop-filter:blur(6px);flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;z-index:10}.build-overlay.show{display:flex}.build-logo{font-family:var(--mono);font-size:2.5rem;color:var(--blue);animation:spin-glow 1s ease-in-out infinite alternate}@keyframes spin-glow{from{text-shadow:0 0 20px rgba(0,184,255,.5)}to{text-shadow:0 0 50px rgba(0,184,255,1)}}.build-status{font-family:var(--mono);font-size:.78rem;color:var(--green);letter-spacing:.12em;text-align:center}.build-bar-wrap{width:260px;height:4px;background:var(--border);border-radius:99px;overflow:hidden}.build-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--green));box-shadow:0 0 10px var(--blue);border-radius:99px;transition:width .3s ease}.build-steps{display:flex;flex-direction:column;gap:.4rem;font-family:var(--mono);font-size:.7rem;color:var(--muted);direction:ltr!important;text-align:left!important}.build-step{display:flex;align-items:center;gap:.5rem}.step-done{color:var(--green)}.tok-tag{color:#79c0ff}.tok-str{color:#a5d6ff}.tok-cmt{color:#4a6a4a;font-style:italic}.tok-kw{color:#ff7eb3}.tok-num{color:#79c0ff}.tok-prop{color:#7ee787}</style></head><body><div class="bg-layer"></div><div class="app"><header><div class="logo"><div class="logo-icon">&#937;</div><div class="logo-text"><h1>OMEGA-X</h1><span>OMNI-CODER ARCHITECT v3.1</span></div></div><div class="hdr-badges"><div class="badge"><div class="dot g"></div>Gemini 2.0 Flash</div><div class="badge"><div class="dot b"></div>Cloudflare Proxy</div><div class="badge"><div class="dot y"></div>Triple-Check Engine</div></div></header><div class="workspace"><div class="chat-pane"><div class="pane-header"><div class="pane-dot r"></div><div class="pane-dot y"></div><div class="pane-dot g"></div><span style="margin-right:.5rem">TERMINAL &mdash; omega-x chat</span></div><div class="messages" id="messages"><div class="msg bot"><div class="avatar">&#9889;</div><div class="bubble"><strong style="color:var(--blue)">&#128075; أهلاً! أنا Omega-X</strong><br>شغّال على Gemini 2.0 Flash عبر Cloudflare Worker آمن.<br><br>كلمني بالعربي أو الإنجليزي وأنا هرد عليك فوراً.<br><strong style="color:var(--green)">لو طلبت كود</strong> هشغّل Triple-Check وهبنيه على اليمين!</div></div></div><div class="input-row"><textarea class="input-box" id="inputBox" placeholder="اكتب رسالتك..." rows="1" dir="auto"></textarea><button class="send-btn" id="sendBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div></div><div class="code-pane"><div class="code-toolbar"><div class="code-toolbar-left"><div class="pane-dot r"></div><div class="pane-dot y"></div><div class="pane-dot g"></div><span id="codeFilename" style="margin-right:.5rem">omega-x code viewer</span><div class="lang-badge" id="langBadge">READY</div></div><button class="copy-btn" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span id="copyLabel">Copy</span></button></div><div class="code-scroll" id="codeScroll"><div class="code-placeholder" id="codePlaceholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg><p>الكود هيظهر هنا</p></div><div class="build-overlay" id="buildOverlay"><div class="build-logo">&#937;</div><div class="build-steps" id="buildSteps"></div><div class="build-bar-wrap"><div class="build-bar" id="buildBar"></div></div><div class="build-status" id="buildStatus">INITIALIZING...</div></div><pre id="codeBlock"></pre></div></div></div></div><script>const API_URL='https://omega-x-proxy.jrabdo86.workers.dev';const API_MODEL='google/gemini-2.0-flash-001';const chatHistory=[];const $=id=>document.getElementById(id);const messagesEl=$('messages'),inputBox=$('inputBox'),sendBtn=$('sendBtn'),codeBlock=$('codeBlock'),codePlaceholder=$('codePlaceholder'),buildOverlay=$('buildOverlay'),buildBar=$('buildBar'),buildStatus=$('buildStatus'),buildStepsEl=$('buildSteps'),copyBtn=$('copyBtn'),copyLabel=$('copyLabel'),langBadge=$('langBadge'),codeFilename=$('codeFilename');const SYSTEM='انت Omega-X المبرمج المصري الاسطوري. بتتكلم عربي مصري ودود. في الكود انت جزار. لما يطلبوا كود: رد 2-3 سطور عربي مرح. حط الكود في code block واحد. لو محادثة عادية: رد عربي مصري قصير مرح.';function sanitize(s){const d=document.createElement('div');d.appendChild(document.createTextNode(s));return d.innerHTML}function extractCode(t){const m=t.match(/```(\w+)?\s*\n([\s\S]*?)```/);return m?{lang:(m[1]||'code').toLowerCase(),code:m[2].trim()}:null}function stripCode(t){return t.replace(/```[\s\S]*?```/g,'').trim()}function addMsg(r,h){const w=document.createElement('div');w.className='msg '+r;w.innerHTML='<div class="avatar">'+(r==='user'?'&#128100;':'&#9889;')+'</div><div class="bubble">'+h+'</div>';messagesEl.appendChild(w);messagesEl.scrollTo({top:messagesEl.scrollHeight,behavior:'smooth'})}function showTyping(){const w=document.createElement('div');w.className='msg bot';w.id='typingEl';w.innerHTML='<div class="avatar">&#9889;</div><div class="bubble"><div class="typing"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div></div>';messagesEl.appendChild(w);messagesEl.scrollTo({top:messagesEl.scrollHeight,behavior:'smooth'})}function hideTyping(){const t=document.getElementById('typingEl');if(t)t.remove()}const PHASES=[{label:'Phase 1 - تحليل الطلب',delay:0},{label:'Phase 2 - فحص الامان',delay:600},{label:'Phase 3 - تحسين الاداء',delay:1200},{label:'Phase 4 - توليد الكود',delay:1800}];function runBuild(){return new Promise(r=>{buildStepsEl.innerHTML='';buildBar.style.width='0%';buildOverlay.classList.add('show');codePlaceholder.style.display='none';codeBlock.style.display='none';PHASES.forEach((p,i)=>{setTimeout(()=>{const e=document.createElement('div');e.className='build-step';e.innerHTML='<span class="step-icon">&#9203;</span><span>'+p.label+'</span>';buildStepsEl.appendChild(e);buildBar.style.width=((i+1)/PHASES.length*80)+'%';buildStatus.textContent='Phase '+(i+1)+' RUNNING...';setTimeout(()=>{e.querySelector('.step-icon').textContent='✅';e.classList.add('step-done')},350)},p.delay)});setTimeout(()=>{buildBar.style.width='100%';buildStatus.textContent='BUILD COMPLETE';setTimeout(()=>{buildOverlay.classList.remove('show');r()},400)},2400)})}let currentCode='';async function showCode(code,lang){currentCode=code;await runBuild();codeBlock.innerHTML=code.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');codeBlock.style.display='block';codeFilename.textContent='output.'+lang;langBadge.textContent=lang.toUpperCase();langBadge.style.color='var(--gold)';copyBtn.classList.add('show')}function copyCode(){if(!currentCode)return;navigator.clipboard.writeText(currentCode).then(()=>{copyLabel.textContent='Copied!';setTimeout(()=>copyLabel.textContent='Copy',2500)}).catch(()=>{const t=document.createElement('textarea');t.value=currentCode;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);copyLabel.textContent='Copied!';setTimeout(()=>copyLabel.textContent='Copy',2500)})}async function callAPI(msgs){const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:API_MODEL,max_tokens:4096,temperature:0.7,messages:[{role:'system',content:SYSTEM},...msgs]})});if(!r.ok){let m='HTTP '+r.status;try{const e=await r.json();m=e.error?.message||m}catch(_){}throw new Error(m)}const d=await r.json();if(d.choices?.length>0)return d.choices[0].message?.content||'';throw new Error('رد فاضي')}let busy=false;async function handleSend(){const raw=inputBox.value.trim();if(!raw||busy)return;busy=true;sendBtn.disabled=true;addMsg('user',sanitize(raw));chatHistory.push({role:'user',content:raw});inputBox.value='';inputBox.style.height='auto';showTyping();try{const reply=await callAPI(chatHistory);hideTyping();chatHistory.push({role:'assistant',content:reply});const cd=extractCode(reply);const ct=stripCode(reply);let h=sanitize(ct).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');if(cd)h+='<br><br><span style="color:var(--green);font-size:.8rem">الكود اتعمل على اليمين</span>';addMsg('bot',h);if(cd)showCode(cd.code,cd.lang)}catch(e){hideTyping();addMsg('bot','<span style="color:var(--red)">خطأ: '+sanitize(e.message)+'</span>')}finally{busy=false;sendBtn.disabled=false;inputBox.focus()}}sendBtn.addEventListener('click',handleSend);copyBtn.addEventListener('click',copyCode);inputBox.addEventListener('input',()=>{inputBox.style.height='auto';inputBox.style.height=Math.min(inputBox.scrollHeight,140)+'px'});inputBox.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleSend()}});</script></body></html>
+/* ═══ TOPBAR ═══ */
+.topbar{
+  height:46px;background:var(--surf);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 14px;gap:10px;flex-shrink:0;z-index:50
+}
+.logo{font-family:var(--display);font-weight:800;font-size:17px;color:#fff;display:flex;align-items:center;gap:8px}
+.logo-mark{
+  width:26px;height:26px;border-radius:7px;
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff
+}
+.topbar-sep{width:1px;height:20px;background:var(--border);margin:0 2px}
+.pill{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(0,255,157,0.06);border:1px solid rgba(0,255,157,0.18);
+  padding:3px 9px;border-radius:20px;font-family:var(--mono);font-size:10px;color:var(--green)
+}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.topbar-actions{margin-right:auto;display:flex;gap:6px}
+.tbtn{
+  padding:5px 11px;border-radius:6px;font-size:11px;font-family:var(--mono);
+  cursor:pointer;border:1px solid var(--border);background:var(--panel);color:var(--dim2);
+  transition:all .2s;display:flex;align-items:center;gap:4px
+}
+.tbtn:hover{border-color:var(--accent);color:var(--accent)}
+.tbtn-key{background:rgba(0,217,255,0.08);border-color:rgba(0,217,255,0.3);color:var(--accent)}
+.tbtn-key:hover{background:rgba(0,217,255,0.15);box-shadow:0 0 15px rgba(0,217,255,0.15)}
+
+/* ═══ LAYOUT ═══ */
+.workspace{flex:1;display:flex;overflow:hidden}
+
+/* ═══ CHAT SIDE ═══ */
+.chat-side{
+  width:380px;flex-shrink:0;display:flex;flex-direction:column;
+  border-left:1px solid var(--border);background:var(--surf);overflow:hidden
+}
+.side-head{
+  padding:10px 14px;border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0
+}
+.side-title{font-family:var(--mono);font-size:10px;color:var(--dim2);letter-spacing:1.5px}
+.side-title em{color:var(--accent);font-style:normal}
+
+/* Quick chips */
+.quick-bar{
+  padding:10px 12px;border-bottom:1px solid var(--border2);
+  display:flex;flex-wrap:wrap;gap:6px;flex-shrink:0
+}
+.chip{
+  padding:4px 10px;border-radius:20px;font-size:11px;font-family:var(--ui);
+  border:1px solid var(--border);background:var(--panel);color:var(--dim2);
+  cursor:pointer;transition:all .2s;white-space:nowrap
+}
+.chip:hover{border-color:rgba(0,217,255,0.4);color:var(--accent);background:rgba(0,217,255,0.05)}
+
+/* Messages */
+.messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:14px;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.messages::-webkit-scrollbar{width:3px}
+.messages::-webkit-scrollbar-thumb{background:var(--border)}
+
+.msg{display:flex;flex-direction:column;gap:5px;animation:msgIn .3s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.user{align-items:flex-start}
+.msg.ai{align-items:flex-end}
+.msg-who{font-size:10px;color:var(--dim);font-family:var(--mono);padding:0 6px}
+.bubble{
+  padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.65;max-width:88%
+}
+.msg.user .bubble{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px 12px 4px 12px
+}
+.msg.ai .bubble{
+  background:linear-gradient(135deg,rgba(0,217,255,0.07),rgba(124,58,237,0.07));
+  border:1px solid rgba(0,217,255,0.18);border-radius:12px 12px 12px 4px;color:#9ecfe8
+}
+
+/* ── Artifact Card داخل المحادثة ── */
+.artifact-card{
+  width:100%;border-radius:10px;overflow:hidden;
+  border:1px solid var(--border);background:var(--card);
+  cursor:pointer;transition:all .25s;position:relative;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4)
+}
+.artifact-card:hover{border-color:rgba(0,217,255,0.35);box-shadow:0 4px 30px rgba(0,217,255,0.1)}
+.artifact-card:hover .art-overlay{opacity:1}
+
+/* Preview thumbnail داخل الكارد */
+.art-preview{
+  width:100%;height:160px;border:none;display:block;
+  pointer-events:none;transform-origin:top right;
+  background:#fff
+}
+
+/* overlay "دوس لتفتح" */
+.art-overlay{
+  position:absolute;inset:0;background:rgba(7,9,13,0.6);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;backdrop-filter:blur(2px)
+}
+.art-overlay-text{
+  background:rgba(0,217,255,0.15);border:1px solid rgba(0,217,255,0.4);
+  padding:8px 18px;border-radius:20px;font-family:var(--mono);font-size:12px;color:var(--accent)
+}
+
+/* Footer الكارد */
+.art-footer{
+  padding:8px 12px;display:flex;align-items:center;gap:8px;
+  border-top:1px solid var(--border2)
+}
+.art-icon{
+  width:22px;height:22px;border-radius:5px;
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0
+}
+.art-name{font-family:var(--mono);font-size:11px;color:var(--text);flex:1}
+.art-size{font-family:var(--mono);font-size:10px;color:var(--dim)}
+
+/* Thinking */
+.thinking{display:flex;gap:5px;padding:6px 0}
+.thinking span{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+  animation:th 1.2s infinite
+}
+.thinking span:nth-child(2){animation-delay:.2s}
+.thinking span:nth-child(3){animation-delay:.4s}
+@keyframes th{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+
+/* Input */
+.input-zone{padding:12px;border-top:1px solid var(--border2);flex-shrink:0}
+.input-box{
+  background:var(--panel);border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;transition:border-color .2s,box-shadow .2s
+}
+.input-box:focus-within{border-color:rgba(0,217,255,.4);box-shadow:0 0 0 3px rgba(0,217,255,.05)}
+.input-ta{
+  width:100%;background:transparent;border:none;outline:none;
+  color:var(--text);font-family:var(--ui);font-size:13px;
+  padding:11px 13px 4px;resize:none;min-height:56px;max-height:130px;
+  direction:rtl;line-height:1.6
+}
+.input-ta::placeholder{color:var(--dim)}
+.input-row{display:flex;align-items:center;justify-content:space-between;padding:5px 8px 7px}
+.input-hint{font-size:10px;color:var(--dim);font-family:var(--mono)}
+.send-btn{
+  width:30px;height:30px;border-radius:7px;
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  border:none;cursor:pointer;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;color:#fff
+}
+.send-btn:hover{transform:scale(1.08);box-shadow:0 0 15px rgba(0,217,255,.3)}
+.send-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+
+/* ═══ CODE VIEWER (يفتح لما تدوس على الكارد) ═══ */
+.viewer{
+  flex:1;display:flex;flex-direction:column;overflow:hidden;
+  border-right:1px solid var(--border)
+}
+.viewer-head{
+  padding:0 14px;height:46px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;background:var(--surf);flex-shrink:0
+}
+.viewer-name{font-family:var(--mono);font-size:12px;color:var(--text);flex:1}
+.viewer-name span{color:var(--dim)}
+
+/* ── 3 أزرار الشريط ── */
+.viewer-actions{display:flex;gap:6px}
+.vbtn{
+  padding:5px 12px;border-radius:6px;font-size:11px;font-family:var(--mono);
+  cursor:pointer;border:1px solid;transition:all .2s;
+  display:flex;align-items:center;gap:5px;white-space:nowrap
+}
+.vbtn-copy{border-color:rgba(0,217,255,.3);color:var(--accent);background:rgba(0,217,255,.07)}
+.vbtn-copy:hover{background:rgba(0,217,255,.15);box-shadow:0 0 12px rgba(0,217,255,.2)}
+.vbtn-dl{border-color:rgba(0,255,157,.3);color:var(--green);background:rgba(0,255,157,.07)}
+.vbtn-dl:hover{background:rgba(0,255,157,.15);box-shadow:0 0 12px rgba(0,255,157,.2)}
+.vbtn-prev{border-color:rgba(124,58,237,.4);color:#a78bfa;background:rgba(124,58,237,.08)}
+.vbtn-prev:hover{background:rgba(124,58,237,.18);box-shadow:0 0 12px rgba(124,58,237,.2)}
+
+/* محرر الكود */
+.code-scroll{
+  flex:1;overflow:auto;direction:ltr;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent
+}
+.code-scroll::-webkit-scrollbar{width:6px;height:6px}
+.code-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.code-body{
+  padding:16px 20px;font-family:var(--mono);font-size:12.5px;
+  line-height:1.75;white-space:pre;text-align:left;min-height:100%;
+  counter-reset:ln
+}
+/* line numbers */
+.code-body .ln{
+  display:inline-block;width:32px;color:var(--dim);user-select:none;
+  text-align:right;margin-left:12px;border-right:1px solid var(--border2);
+  padding-right:10px
+}
+/* syntax colors */
+.k{color:#c792ea}.s{color:#c3e88d}.t{color:#89ddff}
+.a{color:#ffcb6b}.v{color:#f07178}.c{color:#4a6175;font-style:italic}
+.f{color:#82aaff}.n{color:#f78c6c}
+
+/* viewer placeholder */
+.viewer-empty{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:12px;color:var(--dim);font-family:var(--mono);font-size:12px
+}
+.viewer-empty-icon{font-size:44px;opacity:.15;animation:flt 3s ease-in-out infinite}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ═══ PREVIEW PANEL ═══ */
+.preview-side{
+  width:420px;flex-shrink:0;display:flex;flex-direction:column;
+  border-right:1px solid var(--border);background:var(--bg)
+}
+.prev-head{
+  height:46px;padding:0 12px;border-bottom:1px solid var(--border);
+  background:var(--surf);display:flex;align-items:center;gap:8px;flex-shrink:0
+}
+.browser-dots{display:flex;gap:5px}
+.bd{width:10px;height:10px;border-radius:50%}
+.bd-r{background:#ff5f57}.bd-y{background:#ffbd2e}.bd-g{background:#28ca41}
+.urlbar{
+  flex:1;background:var(--panel);border:1px solid var(--border2);
+  border-radius:5px;padding:4px 10px;font-family:var(--mono);font-size:10px;
+  color:var(--dim);direction:ltr;text-align:left
+}
+.prev-frame-wrap{flex:1;position:relative;background:#fff}
+.prev-frame{width:100%;height:100%;border:none;display:block}
+.prev-empty{
+  position:absolute;inset:0;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:10px;color:var(--dim);
+  font-family:var(--mono);font-size:11px;text-align:center
+}
+.prev-empty-icon{font-size:46px;opacity:.15;animation:flt 3s ease-in-out infinite}
+
+/* Progress */
+.progress{height:2px;background:var(--border);flex-shrink:0}
+.progress-bar{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--purple));
+  transition:width .3s;box-shadow:0 0 8px var(--accent)
+}
+
+/* ═══ MODAL API KEY ═══ */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);z-index:999;
+  display:flex;align-items:center;justify-content:center
+}
+.modal{
+  background:var(--surf);border:1px solid var(--border);border-radius:16px;
+  padding:32px 28px;width:440px;max-width:90%;
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 40px rgba(0,217,255,.08);
+  animation:mUp .3s ease
+}
+@keyframes mUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.modal-ico{font-size:38px;text-align:center;margin-bottom:14px}
+.modal-title{font-family:var(--display);font-size:21px;font-weight:800;color:#fff;text-align:center;margin-bottom:8px}
+.modal-desc{font-size:13px;color:var(--dim2);text-align:center;line-height:1.7;margin-bottom:22px}
+.modal-desc a{color:var(--accent);text-decoration:none}
+.modal-inp{
+  width:100%;background:var(--panel);border:1px solid var(--border);
+  border-radius:8px;padding:11px 13px;color:var(--text);
+  font-family:var(--mono);font-size:12px;outline:none;direction:ltr;
+  transition:border-color .2s;margin-bottom:10px
+}
+.modal-inp:focus{border-color:rgba(0,217,255,.5)}
+.modal-inp::placeholder{color:var(--dim)}
+.modal-btn{
+  width:100%;padding:12px;border-radius:8px;font-family:var(--display);
+  font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;margin-bottom:7px;
+  background:linear-gradient(135deg,rgba(0,217,255,.18),rgba(124,58,237,.18));
+  border:1px solid rgba(0,217,255,.4);color:var(--accent)
+}
+.modal-btn:hover{background:linear-gradient(135deg,rgba(0,217,255,.28),rgba(124,58,237,.28));box-shadow:0 0 25px rgba(0,217,255,.15)}
+.modal-skip{width:100%;background:transparent;border:none;color:var(--dim);font-size:12px;cursor:pointer;padding:6px;transition:color .2s}
+.modal-skip:hover{color:var(--text)}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--surf);border:1px solid var(--border);border-radius:8px;
+  padding:9px 18px;font-family:var(--mono);font-size:12px;color:var(--text);
+  z-index:9999;transition:transform .3s ease;white-space:nowrap;
+  box-shadow:0 10px 30px rgba(0,0,0,.5)
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.ok{border-color:rgba(0,255,157,.3);color:var(--green)}
+.toast.err{border-color:rgba(255,64,96,.3);color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- Modal -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <div class="modal-ico">⚡</div>
+    <div class="modal-title">Omega Builder</div>
+    <p class="modal-desc">
+      محتاج Gemini API Key مجاني عشان الـ AI يشتغل.<br>
+      هتلاقيه في <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a> — مجاني 100%
+    </p>
+    <input class="modal-inp" id="keyInp" type="password" placeholder="AIzaSy..." dir="ltr"/>
+    <button class="modal-btn" onclick="saveKey()">🚀 ابدأ البناء</button>
+    <button class="modal-skip" onclick="skipKey()">تخطي — وضع Demo</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="logo">
+    <div class="logo-mark">Ω</div>
+    Omega Builder
+  </div>
+  <div class="topbar-sep"></div>
+  <div class="pill"><div class="pill-dot"></div><span id="modelLbl">Gemini 2.0 Flash</span></div>
+  <div class="topbar-actions">
+    <button class="tbtn" onclick="clearAll()">🗑 مسح</button>
+    <button class="tbtn" onclick="openModal()">🔑 API Key</button>
+  </div>
+</div>
+
+<!-- Workspace -->
+<div class="workspace">
+
+  <!-- ① Chat -->
+  <div class="chat-side">
+    <div class="side-head">
+      <div class="side-title">// <em>AI</em> CHAT</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--dim)" id="cntLbl">0 رسائل</div>
+    </div>
+    <div class="quick-bar">
+      <div class="chip" onclick="qp('اعمل landing page احترافية لشركة تقنية')">🌐 Landing Page</div>
+      <div class="chip" onclick="qp('اعمل dashboard لإدارة المهام مع إحصائيات')">📊 Dashboard</div>
+      <div class="chip" onclick="qp('اعمل todo app كامل مع تصميم داكن')">✅ To-Do App</div>
+      <div class="chip" onclick="qp('اعمل calculator بتصميم glassmorphism')">🔢 Calculator</div>
+      <div class="chip" onclick="qp('اعمل portfolio شخصي مع animations')">👤 Portfolio</div>
+      <div class="chip" onclick="qp('اعمل quiz app تفاعلي مع نتائج')">🧠 Quiz App</div>
+    </div>
+    <div class="messages" id="msgs">
+      <div class="msg ai">
+        <div class="msg-who">Omega-X</div>
+        <div class="bubble">
+          أهلاً يا معلم! 🔥<br>
+          اكتب أي فكرة وأنا هبنيها وتشوفها شغالة فوراً.<br><br>
+          <strong>مثال:</strong> "اعمل todo app بتصميم داكن"
+        </div>
+      </div>
+    </div>
+    <div class="input-zone">
+      <div class="input-box">
+        <textarea class="input-ta" id="ta" placeholder="صف التطبيق اللي عايزه..." rows="2"></textarea>
+        <div class="input-row">
+          <span class="input-hint">Ctrl+Enter ↵</span>
+          <button class="send-btn" id="sendBtn" onclick="send()">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② Code Viewer -->
+  <div class="viewer">
+    <div class="progress"><div class="progress-bar" id="pbar"></div></div>
+    <div class="viewer-head">
+      <div class="viewer-name"><span id="viewerFileName">// اختر artifact لتفتحه</span></div>
+      <div class="viewer-actions">
+        <button class="vbtn vbtn-copy" onclick="copyCode()">📋 نسخ الكود</button>
+        <button class="vbtn vbtn-dl" onclick="dlCode()">⬇ تحميل</button>
+        <button class="vbtn vbtn-prev" onclick="openPreview()">🖥 معاينة كاملة</button>
+      </div>
+    </div>
+    <div class="code-scroll" id="codeScroll">
+      <div class="viewer-empty" id="viewerEmpty">
+        <div class="viewer-empty-icon">{ }</div>
+        <div>دوس على أي artifact في الشات لتفتح الكود</div>
+      </div>
+      <div class="code-body" id="codeBody" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- ③ Live Preview -->
+  <div class="preview-side">
+    <div class="prev-head">
+      <div class="browser-dots">
+        <div class="bd bd-r"></div>
+        <div class="bd bd-y"></div>
+        <div class="bd bd-g"></div>
+      </div>
+      <div class="urlbar" id="urlBar">omega://preview</div>
+      <button class="tbtn" style="flex-shrink:0" onclick="refreshPrev()">↺</button>
+    </div>
+    <div class="prev-frame-wrap">
+      <div class="prev-empty" id="prevEmpty">
+        <div class="prev-empty-icon">🖥</div>
+        <div>المعاينة الحية تظهر هنا</div>
+      </div>
+      <iframe class="prev-frame" id="prevFrame" style="display:none"></iframe>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ══ State ══ */
+let apiKey = localStorage.getItem('omgKey') || '';
+let demo = false;
+let busy = false;
+let currentCode = '';
+let artifacts = [];
+let msgCnt = 0;
+
+/* ══ Init ══ */
+window.addEventListener('load', () => {
+  if (apiKey) closeModal();
+  const ta = document.getElementById('ta');
+  ta.addEventListener('input', () => {
+    ta.style.height = 'auto';
+    ta.style.height = Math.min(ta.scrollHeight, 130) + 'px';
+  });
+  ta.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); send(); }
+  });
+});
+
+/* ══ Modal ══ */
+function saveKey() {
+  const v = document.getElementById('keyInp').value.trim();
+  if (!v || v.length < 20) { toast('❌ مفتاح غلط', 'err'); return; }
+  apiKey = v; localStorage.setItem('omgKey', apiKey);
+  demo = false; closeModal();
+  document.getElementById('modelLbl').textContent = 'Gemini 2.0 Flash ✓';
+  toast('✅ تم حفظ المفتاح', 'ok');
+}
+function skipKey() { demo = true; closeModal(); toast('⚠️ Demo Mode', 'err'); }
+function openModal() {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('keyInp').value = apiKey;
+}
+function closeModal() { document.getElementById('modal').style.display = 'none'; }
+
+/* ══ Quick Prompt ══ */
+function qp(t) { document.getElementById('ta').value = t; send(); }
+
+/* ══ Send ══ */
+async function send() {
+  if (busy) return;
+  const ta = document.getElementById('ta');
+  const txt = ta.value.trim();
+  if (!txt) return;
+  addMsg('user', txt);
+  ta.value = ''; ta.style.height = 'auto';
+  await generate(txt);
+}
+
+/* ══ Add Message ══ */
+function addMsg(role, text, artifactId) {
+  msgCnt++;
+  document.getElementById('cntLbl').textContent = msgCnt + ' رسائل';
+  const log = document.getElementById('msgs');
+  const d = document.createElement('div');
+  d.className = 'msg ' + role;
+  if (role === 'user') {
+    d.innerHTML = `<div class="msg-who">أنت</div><div class="bubble">${esc(text)}</div>`;
+  } else if (artifactId !== undefined) {
+    // رسالة AI مع artifact card
+    const art = artifacts[artifactId];
+    d.innerHTML = `
+      <div class="msg-who">Omega-X</div>
+      <div class="bubble">${esc(text)}</div>
+      <div class="artifact-card" onclick="openArtifact(${artifactId})" style="width:88%;margin-top:6px">
+        <iframe class="art-preview" id="artPrev${artifactId}" scrolling="no"></iframe>
+        <div class="art-overlay"><div class="art-overlay-text">👆 دوس لتفتح الكود</div></div>
+        <div class="art-footer">
+          <div class="art-icon">Ω</div>
+          <div class="art-name">${esc(art.name)}</div>
+          <div class="art-size">${art.size}</div>
+        </div>
+      </div>`;
+  } else {
+    d.innerHTML = `<div class="msg-who">Omega-X</div><div class="bubble">${esc(text)}</div>`;
+  }
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+  // لو artifact — نحمّل الـ iframe الصغير
+  if (artifactId !== undefined) {
+    setTimeout(() => loadArtifactPreview(artifactId), 100);
+  }
+  return d;
+}
+
+function addThinking() {
+  const log = document.getElementById('msgs');
+  const d = document.createElement('div');
+  d.className = 'msg ai'; d.id = 'thk';
+  d.innerHTML = `<div class="msg-who">Omega-X</div>
+    <div class="bubble"><div class="thinking"><span></span><span></span><span></span></div></div>`;
+  log.appendChild(d); log.scrollTop = log.scrollHeight;
+}
+function rmThinking() { const e = document.getElementById('thk'); if(e) e.remove(); }
+
+/* ══ Load artifact preview (iframe صغير داخل الكارد) ══ */
+function loadArtifactPreview(id) {
+  const art = artifacts[id];
+  const frame = document.getElementById('artPrev' + id);
+  if (!frame || !art) return;
+  const blob = new Blob([art.code], {type:'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  frame.src = url;
+}
+
+/* ══ فتح الـ Artifact في الـ Viewer + Preview ══ */
+function openArtifact(id) {
+  const art = artifacts[id];
+  if (!art) return;
+  currentCode = art.code;
+
+  // Viewer
+  document.getElementById('viewerEmpty').style.display = 'none';
+  document.getElementById('codeBody').style.display = 'block';
+  document.getElementById('viewerFileName').innerHTML = `<span style="color:var(--dim)">//</span> ${esc(art.name)}`;
+  renderCode(art.code);
+
+  // Live Preview
+  renderPreview(art.code);
+  document.getElementById('urlBar').textContent = 'omega://preview/' + art.name;
+}
+
+/* ══ Render Code with Syntax Highlight ══ */
+function renderCode(code) {
+  const lines = code.split('\n');
+  let html = '';
+  lines.forEach((line, i) => {
+    const hl = highlight(esc(line));
+    html += `<span class="ln">${i + 1}</span>${hl}\n`;
+  });
+  document.getElementById('codeBody').innerHTML = html;
+}
+
+function highlight(h) {
+  return h
+    .replace(/(&lt;\/?)([\w\-!]+)/g, '<span class="t">$1$2</span>')
+    .replace(/([\w\-]+)(?==&quot;|=&#039;|=[^>\s])/g, '<span class="a">$1</span>')
+    .replace(/(&quot;[^&]*&quot;)/g, '<span class="s">$1</span>')
+    .replace(/\/\*[\s\S]*?\*\//g, m => `<span class="c">${m}</span>`)
+    .replace(/(\/\/[^\n]*)/g, '<span class="c">$1</span>')
+    .replace(/\b(function|const|let|var|return|if|else|for|while|class|new|this|async|await|import|export|default|typeof|true|false|null|undefined)\b/g,
+      '<span class="k">$1</span>')
+    .replace(/\b(\d+\.?\d*)\b/g, '<span class="n">$1</span>');
+}
+
+/* ══ Render Live Preview ══ */
+function renderPreview(code) {
+  const ph = document.getElementById('prevEmpty');
+  const fr = document.getElementById('prevFrame');
+  ph.style.display = 'none';
+  fr.style.display = 'block';
+  const blob = new Blob([code], {type:'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  if (fr._url) URL.revokeObjectURL(fr._url);
+  fr._url = url; fr.src = url;
+}
+
+function refreshPrev() { if (currentCode) renderPreview(currentCode); }
+
+/* ══ Generate ══ */
+async function generate(prompt) {
+  busy = true; setBusy(true); addThinking();
+
+  try {
+    let code = '';
+
+    if (!apiKey || demo) {
+      await wait(1400);
+      code = demoCode(prompt);
+    } else {
+      const sys = `أنت مبرمج خبير. مهمتك فقط:
+- ابنِ تطبيق ويب HTML كامل واحترافي في ملف واحد
+- HTML5 + CSS3 + Vanilla JS
+- تصميم داكن وجميل مع animations
+- كود نظيف ومنظم
+- تفاعلية كاملة
+- لا تكتب أي شرح أو markdown — فقط الكود من <!DOCTYPE html> لـ </html>`;
+
+      const r = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+            contents: [{parts: [{text: sys + '\n\nالطلب: ' + prompt}]}],
+            generationConfig: {temperature: 0.7, maxOutputTokens: 8192}
+          })
+        }
+      );
+      if (!r.ok) { const e = await r.json(); throw new Error(e?.error?.message || 'API Error'); }
+      const data = await r.json();
+      code = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      code = code.replace(/```html\n?/gi,'').replace(/```\n?/g,'').trim();
+    }
+
+    if (!code || code.length < 80) throw new Error('الكود الناتج فارغ أو قصير جداً');
+
+    rmThinking();
+
+    // حفظ الـ artifact
+    const id = artifacts.length;
+    const name = guessName(prompt) + '.html';
+    const size = formatSize(code.length);
+    artifacts.push({code, name, size, prompt});
+
+    // تحديث Progress
+    animProgress();
+
+    // رسالة + كارد
+    addMsg('ai', `✅ التطبيق جاهز! دوس على الكارد لتفتح الكود وتشوف الـ Preview. 🚀`, id);
+
+    // فتح تلقائي في الـ viewer
+    setTimeout(() => openArtifact(id), 500);
+
+  } catch(err) {
+    rmThinking();
+    let m = '❌ ' + err.message;
+    if (err.message.includes('API_KEY') || err.message.includes('key')) m = '❌ المفتاح غلط — اضغط "API Key"';
+    if (err.message.includes('quota')) m = '⚠️ انتهى الـ quota، جرب بكرة';
+    addMsg('ai', m);
+    toast(m, 'err');
+  } finally {
+    busy = false; setBusy(false);
+  }
+}
+
+/* ══ Helpers ══ */
+function setBusy(s) {
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = s; btn.textContent = s ? '⟳' : '➤';
+  if (s) { document.getElementById('pbar').style.width = '65%'; }
+}
+
+function animProgress() {
+  const b = document.getElementById('pbar');
+  b.style.width = '0%';
+  let p = 0;
+  const t = setInterval(() => {
+    p += 4; b.style.width = Math.min(p,100) + '%';
+    if (p >= 100) { clearInterval(t); setTimeout(()=>{ b.style.width='0%'; }, 600); }
+  }, 18);
+}
+
+function guessName(prompt) {
+  const p = prompt.toLowerCase();
+  if (p.includes('todo') || p.includes('مهام')) return 'todo-app';
+  if (p.includes('dashboard') || p.includes('داشبورد')) return 'dashboard';
+  if (p.includes('landing') || p.includes('هبوط')) return 'landing-page';
+  if (p.includes('calculator') || p.includes('حاسبة')) return 'calculator';
+  if (p.includes('portfolio') || p.includes('بورتفوليو')) return 'portfolio';
+  if (p.includes('quiz') || p.includes('اختبار')) return 'quiz-app';
+  if (p.includes('weather') || p.includes('طقس')) return 'weather-app';
+  if (p.includes('chat') || p.includes('شات')) return 'chat-ui';
+  return 'omega-app';
+}
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  return (bytes/1024).toFixed(1) + ' KB';
+}
+
+function copyCode() {
+  if (!currentCode) { toast('⚠️ مفيش كود', 'err'); return; }
+  navigator.clipboard.writeText(currentCode)
+    .then(()=>toast('✅ تم النسخ!','ok'))
+    .catch(()=>toast('❌ فشل النسخ','err'));
+}
+
+function dlCode() {
+  if (!currentCode) { toast('⚠️ مفيش كود', 'err'); return; }
+  const name = document.getElementById('viewerFileName').textContent.replace('// ','').trim() || 'omega-app.html';
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([currentCode],{type:'text/html'}));
+  a.download = name; a.click();
+  toast('✅ جاري التحميل...', 'ok');
+}
+
+function openPreview() {
+  if (!currentCode) { toast('⚠️ مفيش كود', 'err'); return; }
+  const w = window.open('','_blank');
+  w.document.write(currentCode);
+  w.document.close();
+}
+
+function clearAll() {
+  artifacts = []; msgCnt = 0; currentCode = '';
+  document.getElementById('cntLbl').textContent = '0 رسائل';
+  document.getElementById('msgs').innerHTML = `
+    <div class="msg ai"><div class="msg-who">Omega-X</div>
+    <div class="bubble">تم المسح! جاهز لمشروع جديد 🚀</div></div>`;
+  document.getElementById('codeBody').style.display = 'none';
+  document.getElementById('viewerEmpty').style.display = 'flex';
+  document.getElementById('viewerFileName').innerHTML = '<span style="color:var(--dim)">//</span> اختر artifact لتفتحه';
+  document.getElementById('prevFrame').style.display = 'none';
+  document.getElementById('prevEmpty').style.display = 'flex';
+}
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.appendChild(document.createTextNode(s));
+  return d.innerHTML;
+}
+
+function wait(ms) { return new Promise(r=>setTimeout(r,ms)); }
+
+function toast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = `toast ${type} show`;
+  setTimeout(()=>{ t.className='toast'; }, 3000);
+}
+
+/* ══ Demo Code ══ */
+function demoCode(prompt) {
+  return `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omega Demo App</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    min-height:100vh;font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    display:flex;align-items:center;justify-content:center;color:#fff
+  }
+  .card{
+    background:rgba(255,255,255,.06);backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.12);border-radius:20px;
+    padding:44px 40px;text-align:center;max-width:440px;width:90%;
+    box-shadow:0 25px 60px rgba(0,0,0,.5);animation:pop .5s ease
+  }
+  @keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+  .ico{font-size:64px;margin-bottom:20px;display:block;animation:fl 3s ease-in-out infinite}
+  @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  h1{font-size:28px;margin-bottom:10px;
+    background:linear-gradient(90deg,#00d9ff,#a855f7);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  p{color:rgba(255,255,255,.6);font-size:14px;line-height:1.7;margin-bottom:24px}
+  .note{
+    background:rgba(0,217,255,.1);border:1px solid rgba(0,217,255,.3);
+    border-radius:10px;padding:14px;font-size:13px;color:#00d9ff
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="ico">⚡</span>
+    <h1>Omega Builder Demo</h1>
+    <p>طلبك: "${prompt.substring(0,100)}"</p>
+    <div class="note">🔑 أضف Gemini API Key وأنا هبني التطبيق الحقيقي!</div>
+  </div>
+</body>
+</html>`;
+}
+</script>
+</body>
+</html>
